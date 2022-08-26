@@ -9,11 +9,13 @@ main_blueprint = Blueprint('main_blueprint', __name__, template_folder='template
 
 @main_blueprint.route('/')
 def main_page():
+    """Главная страница"""
     return render_template('index.html')
 
 
 @main_blueprint.route('/search/')
 def search_page():
+    """Страница поиска по слову"""
     search_query = request.args.get('s', '')
     try:
         posts = get_posts_by_words(search_query)

@@ -10,11 +10,13 @@ loader_blueprint = Blueprint('loader_blueprint', __name__, template_folder='temp
 
 @loader_blueprint.route('/post')
 def add_post_page():
+    """Страница добавленных постов"""
     return render_template('post_form.html')
 
 
 @loader_blueprint.route('/post', methods=['POST'])
 def add_post():
+    """Страница добавления постов"""
     picture = request.files.get('picture')
     content = request.form.get('content')
 
